@@ -70,10 +70,8 @@ download_dashboards.sh: |
   #!/usr/bin/env sh
   set -euf
   {{- if .Values.dashboardProviders }}
-    {{- range $key, $value := .Values.dashboardProviders }}
-      {{- range $value.providers }}
+    {{- range .Values.dashboardProviders.providers }}
   mkdir -p {{ .options.path }}
-      {{- end }}
     {{- end }}
   {{- end }}
 {{ $dashboardProviders := .Values.dashboardProviders }}
